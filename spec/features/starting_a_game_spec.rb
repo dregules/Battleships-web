@@ -6,4 +6,10 @@ feature 'Starting a new game' do
     click_link 'New Game'
     expect(page).to have_content "What's your name?"
   end
+
+  scenario 'Name is entered/recorded' do
+    visit '/NewGame'
+    fill_in 'Name', :with => 'Richard'
+    expect(form).to have_content(name)
+  end
 end
