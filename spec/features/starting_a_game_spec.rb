@@ -9,7 +9,7 @@ feature 'Starting a new game' do
 
   scenario 'Name is entered/recorded' do
     visit '/NewGame'
-    fill_in 'Name', :with => 'Richard'
-    expect(form).to have_content(name)
+    page.fill_in 'Name', :with => name
+    expect(page).to have_content(name)
   end
 end
