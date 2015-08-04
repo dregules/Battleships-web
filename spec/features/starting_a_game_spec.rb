@@ -9,7 +9,8 @@ feature 'Starting a new game' do
 
   scenario 'Name is entered/recorded' do
     visit '/NewGame'
-    page.fill_in 'Name', :with => name
-    expect(page).to have_content(name)
+    fill_in 'Name', :with => params[:name]
+    click_button "Submit"
+    expect(page).to have_content("Welcome" + params[:name])
   end
 end
