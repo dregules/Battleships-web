@@ -1,9 +1,10 @@
 require 'sinatra/base'
-#require 'shotgun'
+require_relative 'player'
 
 
 class BattleshipsWeb < Sinatra::Base
   set :views, proc { File.join(root, '..', 'views') }
+  enable :sessions
 
   get '/' do
     erb :index
@@ -18,6 +19,10 @@ class BattleshipsWeb < Sinatra::Base
     if @name == ''
       redirect '/NewGame'
     else
+      p 'Before assginment'
+      p session
+      session[:player1] = Player.new @name
+      p session
       erb :game
     end
   end
