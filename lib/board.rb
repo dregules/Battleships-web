@@ -1,3 +1,5 @@
+require_relative 'ship'
+
 class Board
   DEFAULT_SIZE = 1
   DEFAULT_NUMBER_OF_PIECES = 1

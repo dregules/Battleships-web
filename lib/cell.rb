@@ -1,3 +1,5 @@
+require_relative 'water'
+
 class Cell
   attr_accessor :content
 

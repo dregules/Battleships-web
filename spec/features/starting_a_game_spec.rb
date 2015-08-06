@@ -13,18 +13,8 @@ feature 'Starting a new game' do
     visit '/NewGame'
     fill_in 'name', :with => 'examplename'
     click_button 'Submit'
-    expect(page).to have_content 'examplename'
+    expect(page).to have_content 'examplename, your opponent is COMPUTER'
   end
-
-  # scenario 'name is stored in #session[:player1]' do
-  #   byebug
-  #   visit '/NewGame'
-  #   fill_in 'Name', :with => 'Diego'
-  #   click_button 'Submit'
-  #   allow(player1).to receive(:name).with('Diego')
-  #   expect(session[:player1]).to eq player1.name
-  # end
-
 
 
   scenario 'Name is not entered' do

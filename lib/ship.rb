@@ -1,3 +1,5 @@
+require_relative 'cell'
+
 class Ship
   attr_reader :size
   DEFAULT_SHIP_SIZE = 1
