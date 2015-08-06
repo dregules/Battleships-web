@@ -1,4 +1,17 @@
 <div>
    <h1> Game started </h1>
-   Welcome <%= @player_1.name %>, your opponent is <%= @player_2.name %>!
+   <p> Welcome <%= session[:name] %> </p>
+   <%if $game.turn.name == session[:name]%>
+    its your turn
+    <%else%>
+    wait for your turn
+    <%end%>
+</div>
+
+<div>
+  <form action="/fire" method='post'>
+    Fire at:
+    <input type="text" name="fire_location">
+    <input type="submit" value="fire">
+  </form>
 </div>

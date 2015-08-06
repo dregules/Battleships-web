@@ -2,10 +2,11 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :turn
+  attr_reader  :turn
+  attr_accessor :player_1, :player_2
 
-  def initialize player_1, player_2
-    @player_1, @player_2, @turn = player_1, player_2, player_1
+  def initialize
+     @turn = player_1
   end
 
   def make_move position
@@ -18,12 +19,16 @@ class Game
     turn == player_1 ? player_2 : player_1
   end
 
+  def turn
+    @turn ||= player_1
+  end
+
   def over?
     opponent.lost?
   end
 
   def ready?
-    player_1.ready? && player_2.ready?
+    player_1.ready? && player_2.ready? rescue false
   end
 
   private
