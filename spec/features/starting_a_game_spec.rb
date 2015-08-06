@@ -10,7 +10,13 @@ feature 'Starting a new game' do
   scenario 'Name is entered/recorded' do
     visit '/NewGame'
     fill_in 'Name', :with => 'examplename'
-    click_button "Submit"
-    expect(page).to have_content "examplename"
+    click_button 'Submit'
+    expect(page).to have_content 'examplename'
+  end
+
+  scenario 'Name is not entered' do
+    visit '/NewGame'
+    click_button 'Submit'
+    expect(page).to have_content "What's your name?"
   end
 end

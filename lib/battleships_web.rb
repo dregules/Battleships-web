@@ -15,7 +15,11 @@ class BattleshipsWeb < Sinatra::Base
 
   get '/Game' do
     @name = params[:Name]
-    erb :game
+    if @name == ''
+      redirect '/NewGame'
+    else
+      erb :game
+    end
   end
 
   # start the server if ruby file executed directly
