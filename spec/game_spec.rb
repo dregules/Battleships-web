@@ -1,12 +1,14 @@
 require 'game'
 describe Game do
-  let(:game){Game.new(player_1, player_2)}
+  let(:game){Game.new}
   let(:player_1){double :player_1}
   let(:player_2){double :player_2}
 
   before do
     allow(player_2).to receive(:register_shot)
     allow(player_2).to receive(:lost?)
+    game.player_1 = player_1
+    game.player_2 = player_2
   end
 
   it "knows who player 1 is" do
