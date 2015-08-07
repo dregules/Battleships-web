@@ -13,7 +13,7 @@ feature 'Starting a new game' do
     visit '/NewGame'
     fill_in 'name', :with => 'examplename'
     click_button 'Submit'
-    expect(page).to have_content 'examplename, your opponent is COMPUTER'
+    expect(page).to have_content 'examplename'
   end
 
 
@@ -21,5 +21,12 @@ feature 'Starting a new game' do
     visit '/NewGame'
     click_button 'Submit'
     expect(page).to have_content "What's your name?"
+  end
+
+  scenario 'when player 1 is the only registered, he should wait for player 2' do
+    visit '/NewGame'
+    fill_in 'name', :with => 'examplename'
+    click_button 'Submit'
+    expect(page).to have_content "Wait for Player 2 to register"
   end
 end
