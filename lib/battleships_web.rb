@@ -19,7 +19,7 @@ class BattleshipsWeb < Sinatra::Base
   get '/Game' do
     redirect '/NewGame' if params[:name] == ''
     session[:name] = params[:name]
-
+    @player1 ? @player2 = Player.new(session[:name]) : @player1 = Player.new(session[:name])
     erb :game
   end
 
